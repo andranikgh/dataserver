@@ -41,7 +41,7 @@ jobs:
         sudo chmod +x /usr/local/bin/docker-compose
 
     - name: Deploy with Docker Compose
-      run: |
-        docker-compose up -d
+      run: docker-compose up -d
+
     - name: Test server
       run: curl -f http://localhost:1321/health || exit 1
