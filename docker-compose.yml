@@ -1,0 +1,15 @@
+version: "3.9"
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+  myapp:
+    build: .
+    ports:
+      - "1321:1321"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_ADDR=redis:6379
