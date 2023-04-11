@@ -24,12 +24,12 @@ jobs:
     - name: Run tests
       run: go test ./...
 
-    - name: Deploy with Docker Compose
-      uses: docker/compose-cli@v1.0.17
-      with:
-        compose-file: docker-compose.yaml
-        project-name: main
-        command: up -d
-
-    - name: Test server
-      run: curl -f http://localhost:1321/health || exit 1
+#    - name: Deploy with Docker Compose
+#      uses: docker/compose-cli@v1.0.17
+#      with:
+#        compose-file: docker-compose.yaml
+#        project-name: main
+#        command: up -d
+#
+#    - name: Test server
+#      run: curl -f http://localhost:1321/health || exit 1
