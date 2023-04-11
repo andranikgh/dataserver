@@ -38,5 +38,9 @@ jobs:
       with:
         compose-file: "./docker-compose.yml"
         
+    - name: Wait for server to start
+      run: |
+        while ! curl -s localhost:1321; do sleep 1; done
+
     - name: Test server
       run: curl -f http://localhost:1321/health/ || exit 1
