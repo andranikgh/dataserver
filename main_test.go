@@ -88,7 +88,7 @@ func TestLoadPromotions(t *testing.T) {
 	})
 
 	// Load test data into Redis
-	loadPromotions("test_data.csv", testClient)
+	loadPromotions("data/test_data.csv", testClient)
 
 	// Verify that the expected data was loaded into Redis
 	expectedPromotions := map[string]Promotion{
