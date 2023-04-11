@@ -34,9 +34,9 @@ jobs:
         push: false
 
     - name: Deploy with Docker Compose
-    - uses: isbang/compose-action@v1.4.1
+      uses: isbang/compose-action@v1.4.1
       with:
-        compose-file: "./docker-compose.yml"
-  
+        compose-file: "./docker/docker-compose.yml"
+        
     - name: Test server
       run: curl -f http://localhost:1321/health || exit 1
