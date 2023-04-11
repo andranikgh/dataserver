@@ -39,4 +39,4 @@ jobs:
         compose-file: "./docker/docker-compose.yml"
         
     - name: Test server
-      run: curl -f http://localhost:1321/health || exit 1
+      run: curl -f http://localhost:1321/health/ || exit 1

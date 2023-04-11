@@ -3,6 +3,7 @@ package main
 import (
 	"encoding/csv"
 	"encoding/json"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -31,7 +32,13 @@ func main() {
 	loadPromotions("data/promotions.csv", client)
 
 	http.HandleFunc("/promotions/", getPromotion)
+	http.HandleFunc("/health/", healthCheckHandler)
 	log.Fatal(http.ListenAndServe(":1321", nil))
+}
+
+func healthCheckHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusOK)
+	fmt.Fprint(w, "Server is up and running!")
 }
 
 func getPromotion(w http.ResponseWriter, r *http.Request) {
