@@ -42,9 +42,6 @@ jobs:
 
     - name: Deploy with Docker Compose
       run: |
-        cd <project_directory>
         docker-compose up -d
-      env:
-        DOCKER_REGISTRY: <docker_registry>
     - name: Test server
       run: curl -f http://localhost:1321/health || exit 1
